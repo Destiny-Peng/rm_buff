@@ -1,0 +1,2 @@
+geometry_msgs/PointStamped armor_center
+geometry_msgs/PointStamped r_center

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<opencv_storage>
+
+    <!-- 相机内参矩阵参数 -->
+    <camera_internal_matrix type_id="camera-internal-matrix">
+        <rows>3</rows>
+        <cols>3</cols>
+        <dt>d</dt>
+        <data>
+            2030.12104246074	 0.0 343.240928086818
+            0.0 2014.75407437357 290.868310191780
+            0.0 0.0 1.0
+        </data>
+    </camera_internal_matrix>
+
+    <!-- 相机畸变矩阵参数 -->
+    <distortion_coeff type_id="distortion-coeff">
+        <rows>5</rows>
+        <cols>1</cols>
+        <dt>d</dt>
+        <data>
+            -0.0691278653272981	-0.167546396206684 0.0 0.0 0.0
+        </data>
+    </distortion_coeff>
+
+</opencv_storage>

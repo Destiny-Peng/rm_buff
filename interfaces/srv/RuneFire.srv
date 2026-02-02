@@ -1,0 +1,5 @@
+builtin_interfaces/Time time     # 目标的ros时间戳
+---
+geometry_msgs/PointStamped target_point # 目标点
+bool valid                 # 目标点是否有效
+bool fire                   #是否能开火

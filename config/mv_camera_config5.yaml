@@ -1,0 +1,37 @@
+%YAML:1.0
+---
+
+frame_width: 640  # 图像宽度
+frame_height: 480 # 图像高度
+blue_channel_gain: 100 #156 B通道增益
+green_channel_gain: 132 # 131 #129 128 # G通道增益
+red_channel_gain:  167 # 164 #100 155 # R通道增益
+saturation: 100 # 饱和度
+contrast: 100 # 对比度
+gamma: 100 # 伽马值
+sharpness: 0 # 设置图像锐化程度[0-100]
+
+
+
+###################################################
+# 自瞄自动曝光设置
+auto_exp_target_brightness: 60  # 目标亮度值
+auto_exp_thresh: 5 # 阈值, 当当前亮度值与目标亮度值差值的绝对值小于该阈值时曝光时间和模拟增益不再发生变化
+auto_exp_min_expourse_time: 101 # 曝光时间最小值
+auto_exp_max_expourse_time: 3500 # ���光时间最大值
+auto_exp_min_analog_gain: 150 # 模拟增益最小值
+auto_exp_max_analog_gain: 150 # 模拟增益最大值
+###################################################
+
+
+###################################################
+# 固定曝光设置
+armor_exposure_time: 3000 # 自瞄固定曝光值
+rune_red_exposure_time: 1900 #1500 # 紅色能量机关曝光值#3200
+rune_blue_exposure_time: 1200 # 藍色能量机关曝光值
+outpost_exposure_time: 5000 # ���打前哨战曝光值
+analog_gain: 25 # 模拟增益, ArmorDir dir, bool low_and_close_gyro
+outpost_analog_gain: 100 # 模拟增益
+
+F_exposure_time: 4000
+F_analog_gain: 5

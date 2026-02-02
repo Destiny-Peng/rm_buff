@@ -1,0 +1,1 @@
+FanArmor[] fan_armors

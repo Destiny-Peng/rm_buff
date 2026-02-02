@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<opencv_storage>
+    <workspace name="主工作线程">
+        <!-- 是否使用通信，1使用, 0不使用 -->
+        <USE_COMM>1</USE_COMM>
+        <!-- 是否显示图像, 1 是, 0 否 -->
+        <SHOW_IMAGE>0</SHOW_IMAGE>
+        <!-- 是否使用四点网络，1是，0否-->
+        <USE_NETWORK>1</USE_NETWORK>
+        <!-- 是否显示滚动条, 1 是, 0 否 -->
+        <!-- 注意：必须在 SHOW_IMAGE=1 的情况下才可开-->
+        <TRACKBAR>0</TRACKBAR>
+        <!-- 是否打印工作时间，是1否0 -->
+        <RUNNING_TIME>0</RUNNING_TIME>
+        <!-- 敌方颜色，0代表从电控读，1是红色，2是蓝色，3是双色模式 -->
+        <ENEMY_COLOR>0</ENEMY_COLOR>
+        <!-- 机器人工作模式：0:从电控读 1:二代自瞄 2:匀速能量机关 3：变速能量机关 4:跟随击打前哨战 5.固定击打前哨战 6:FYC前哨站-->
+        <!-- 视觉调试/标定模式: -1:时间帧对齐标定 -2:坐标解算标定-->
+        <MODE>4</MODE>
+        <!-- 是否使用相机，是1否0 -->
+        <!-- 注意：不使用相机时默认为使用视频传入 -->
+        <USE_CAMERA>1</USE_CAMERA>
+        <USE_VIDEO>0</USE_VIDEO>
+        <USE_VIO>0</USE_VIO>
+        <!-- 是否在运行代码的同时保存视频，0否1是 -->
+        <LOGGER>0</LOGGER>
+        <RUNELOGGER>0</RUNELOGGER>
+        <!--是否使用vofa+上位机-->
+        <VOFA>0</VOFA>
+        <!-- 测试视频输入路径 -->
+        <!-- <VIDEO_DIR>"/home/jingzhi/code/herocv2023-dev/data/video/"</VIDEO_DIR> -->
+        <!-- <VIDEO_DIR>"/home/skylar-xty/Add_Pan/test/herocv2023-dev-standard_dev/save/video/"</VIDEO_DIR> -->
+        <VIDEO_DIR>"save/video/"</VIDEO_DIR>
+        <!-- 测试视频文件名称 -->
+        <VIDEO_NAME>"2023-8-10-13:59:24.avi"</VIDEO_NAME>
+        <!-- 视频保存路径，没有该文件夹时无法保存 -->
+        <LOG_SAVE_PATH>"logs/video/armor/"</LOG_SAVE_PATH>
+        <RUNELOG_SAVE_PATH>"logs/video/rune/"</RUNELOG_SAVE_PATH>
+        <!-- 图像保存路径,没有该文件夹时无法保存-->
+        <IMAGE_SAVE_PATH>"../save/img/"</IMAGE_SAVE_PATH>
+        <!-- 是否显示能量机关的预测效果，是1否0 -->
+        <SHOW_PREDICT>1</SHOW_PREDICT>
+        <!--是否进入标定能量机关的模式，若进入则dst小能量机关模式下进行标定-->
+        <RUNE_CALIB>0</RUNE_CALIB>
+        <!--能量机关是否自动发弹-->
+        <RUNE_AUTO_FIRE>1</RUNE_AUTO_FIRE>
+        <!--能量机关相机曝光调节下限-->
+        <RUNE_CAMERAPARAM_LOW>300</RUNE_CAMERAPARAM_LOW>
+        <!--能量机关相机曝光调节上限-->
+        <RUNE_CAMERAPARAM_HIGH>2000</RUNE_CAMERAPARAM_HIGH>
+        <!--能量机关相机曝光更改时间间隔(单位：s)-->
+        <RUNE_CAMERAPARAM_TIMEINTERVAL>6</RUNE_CAMERAPARAM_TIMEINTERVAL>
+        <!--能量机关相机曝光更改值间隔-->
+        <RUNE_EXPORSURETIME_INTERVAL>100</RUNE_EXPORSURETIME_INTERVAL>
+        <!--是否需要能量机关相机曝光调试-->
+        <RUNE_CAMERAPARAM_ADJUST>0</RUNE_CAMERAPARAM_ADJUST>
+    </workspace>
+
+    <armor_detect name="装甲板检测">
+        <!-- 是否使用ROI加速 -->
+        <ARMOR_ROI_ENABLE>1</ARMOR_ROI_ENABLE>
+        <!-- 是否使用数字识别-->
+        <USE_MODEL>1</USE_MODEL>
+
+        <!-- 图像预处理相关参数传入 -->
+
+        <!--原图像蓝色阈值 -->
+        <BLUE_GREY_THRES>160</BLUE_GREY_THRES>
+        <!-- 源色通道相减图像灰度阈值 -->
+        <BLUE_SUBTRACT_THRES>70</BLUE_SUBTRACT_THRES>
+        <!-- 蓝通道阈值 -->
+        <BLUE_CHANNEL_THRESH>160</BLUE_CHANNEL_THRESH>
+
+        <!--源图像红色阈值-->
+        <RED_GREY_THRES>160</RED_GREY_THRES>
+        <!-- 红色色通道相减图像灰度阈值 -->
+        <RED_SUBTRACT_THRES>20</RED_SUBTRACT_THRES>
+        <!-- 红通道阈值-->
+        <RED_CHANNEL_THRESH>160</RED_CHANNEL_THRESH>
+
+        <!-- 算子核大小 -->
+        <KERNEL_SIZE>2</KERNEL_SIZE>
+
+        <!-- 装甲板筛选限定条件相关参数传入 -->
+        <!-- 轮廓被视为灯条的最大面积 -->
+        <MAX_LIGHTBAR_AREA>9000.0</MAX_LIGHTBAR_AREA>
+        <!-- 轮廓被视为灯条的最小面积 -->
+        <MIN_LIGHTBAR_AREA>1.0</MIN_LIGHTBAR_AREA>
+        <!-- 灯条的长短比最小 -->
+        <MIN_LIGHTBAR_RATIO>1.0</MIN_LIGHTBAR_RATIO>
+        <!-- 大装甲板长短比下限 -->
+        <MIN_ASPECT_BIG_RATIO>3.7</MIN_ASPECT_BIG_RATIO>
+        <!-- 大装甲板长短比上限 -->
+        <MAX_ASPECT_BIG_RATIO>8.0</MAX_ASPECT_BIG_RATIO>
+        <!-- 小装甲板长短比下限 -->
+        <MIN_ASPECT_SMALL_RATIO>1.5</MIN_ASPECT_SMALL_RATIO>
+        <!-- 小装甲板长短比上限 -->
+        <MAX_ASPECT_SMALL_RATIO>3.7</MAX_ASPECT_SMALL_RATIO>
+        <!-- 两个灯条长度比上限 -->
+        <MAX_LENGTH_RATIO>1.5</MAX_LENGTH_RATIO>
+        <!-- 灯条倾斜度上限 -->
+        <MAX_LIGHTBAR_ANGLE>40.0</MAX_LIGHTBAR_ANGLE>
+        <!-- 灯条倾斜度之差上限 -->
+        <MAX_LIGHTBAR_DELTA>15.0</MAX_LIGHTBAR_DELTA>
+        <!-- 装甲板倾斜度上限 -->
+        <MAX_ARMOR_ANGLE>55.0</MAX_ARMOR_ANGLE>
+
+        <!-- 最大预选数量相关参数传入 -->
+        <!-- 每帧送进分类器的候选装甲板的最大数量 -->
+        <MAX_CANDIDATE_NUM>3</MAX_CANDIDATE_NUM>
+    </armor_detect>
+
+    <sentinel name="打击哨兵">
+        <!--灰度二值化阈值-->
+        <SENTINEL_RED_GRAY2BINARY_THRESH>80</SENTINEL_RED_GRAY2BINARY_THRESH>
+        <SENTINEL_BLUE_GRAY2BINARY_THRESH>100</SENTINEL_BLUE_GRAY2BINARY_THRESH>
+        <!--颜色通道相减二值化阈值-->
+        <SENTINEL_RED_SUBTRACT_THRESH>20</SENTINEL_RED_SUBTRACT_THRESH>
+        <SENTINEL_BLUE_SUBTRACT_THRESH>20</SENTINEL_BLUE_SUBTRACT_THRESH>
+        <!--是否使用roi-->
+        <SENTINEL_ROI_ENABLE>1</SENTINEL_ROI_ENABLE>
+        <!-- 标准高度，单位m-->
+        <SENTINEL_STANDARD_HEIGHT>0.282</SENTINEL_STANDARD_HEIGHT>
+        <!--高度最低，单位m-->
+        <SENTINEL_MIN_HEIGHT>0.25</SENTINEL_MIN_HEIGHT>
+        <!--高度最高，单位m -->
+        <SENTINEL_MAX_HEIGHT>0.70</SENTINEL_MAX_HEIGHT>
+        <!--深度最近距离，单位m-->
+        <SENTINEL_MIN_DEPTH>3.0</SENTINEL_MIN_DEPTH>
+        <!--深度最远距离，单位m-->
+        <SENTINEL_MAX_DEPTH>5.5</SENTINEL_MAX_DEPTH>
+        <!--大装甲板最小比例-->
+        <SENTINEL_MIN_ARMOR_RATIO>3.0</SENTINEL_MIN_ARMOR_RATIO>
+        <!--大装甲板最大比例-->
+        <SENTINEL_MAX_ARMOR_RATIO>8.0</SENTINEL_MAX_ARMOR_RATIO>
+        <!--装甲板最小面积-->
+        <SENTINEL_MIN_ARMOR_AREA>0</SENTINEL_MIN_ARMOR_AREA>
+        <!--装甲板最大面积-->
+        <SENTINEL_MAX_ARMOR_AREA>1000</SENTINEL_MAX_ARMOR_AREA>
+        <!--灯条高度比例最大值-->
+        <SENTINEL_MAX_BAR_HEIGHT_RATIO>1.5</SENTINEL_MAX_BAR_HEIGHT_RATIO>
+        <!--灯条最大角度差-->
+        <SENTINEL_MAX_BAR_ANGLE>10</SENTINEL_MAX_BAR_ANGLE>
+    </sentinel>
+
+    <rune name="能量机关">
+        <!--筛选能量机关装甲板-->
+        <!--红蓝通道相减后二值化阈值-->
+        <RUNE_RED_BLUE_THRESH>85</RUNE_RED_BLUE_THRESH>
+        <!--蓝红通道相减后二值化阈值-->
+        <RUNE_BLUE_RED_THRESH>120</RUNE_BLUE_RED_THRESH>
+        <!--二值化后的最大值-->
+        <RUNE_THRESH_MAX_VALUE>255</RUNE_THRESH_MAX_VALUE>
+        <!--子轮廓的最大面积-->
+        <RUNE_MAX_SON_CONTOUR_AREA>2500</RUNE_MAX_SON_CONTOUR_AREA>
+        <!--子轮廓的最小面积-->
+        <RUNE_MIN_SON_CONTOUR_AREA>328</RUNE_MIN_SON_CONTOUR_AREA>
+        <!--装甲板轮廓的最大面积-->
+        <RUNE_MAX_ARMOR_CONTOUR_AREA>790</RUNE_MAX_ARMOR_CONTOUR_AREA>
+        <!--装甲板轮廓的最小面积-->
+        <RUNE_MIN_ARMOR_CONTOUR_AREA>150</RUNE_MIN_ARMOR_CONTOUR_AREA>
+        <!--装甲板轮廓的最大长宽比-->
+        <RUNE_MAX_LENGTH_WIDTH_RATIO>2.2</RUNE_MAX_LENGTH_WIDTH_RATIO>
+        <!--装甲板轮廓的最小长宽比-->
+        <RUNE_MIN_LENGTH_WIDTH_RATIO>1.4</RUNE_MIN_LENGTH_WIDTH_RATIO>
+        <!--装甲板实际半宽-->
+        <RUNEARMOR_HALF_WIDTH>122.0</RUNEARMOR_HALF_WIDTH>
+        <!--装甲板实际半高-->
+        <RUNEARMOR_HALF_HEIGHT>67.0</RUNEARMOR_HALF_HEIGHT>
+        <!--0:能量机关使用五点模型识别,1:能量机关使用传统视觉识别-->
+        <RUNE_DETECT_METHOD>0</RUNE_DETECT_METHOD>
+        <!--扇叶下部分最小外接矩形request->center_xs.push_back(armors[i].lbar_rect.center.x);
+                // request->center_xs.push_back(armors[i].rbar_rect.center.x);
+
+                // request->center_ys.push_back(armors[i].lbar_rect.center.y);
+                // request->center_ys.push_back(armors[i].rbar_rect.center.y);
+
+                // request->widths.push_back(armors[i].lbar_rect.size.width);
+                // request->widths.push_back(armors[i].rbar_rect.size.width);
+
+                // request->heights.push_back(armors[i].lbar_rect.size.height);
+                // request->heights.push_back(armors[i].rbar_rect.size.height);
+
+                // request->angles.push_back(armors[i].lbar_rect.angle);
+                // request->angles.push_back(armors[i].rbar_rect.angle);长宽比最小值-->
+        <UNDER_FAN_RECT_MIN_RATIO>1.1</UNDER_FAN_RECT_MIN_RATIO>
+        <!--扇叶下部分最小外接矩形长宽比最大值-->
+        <UNDER_FAN_RECT_MAX_RATIO>2</UNDER_FAN_RECT_MAX_RATIO>
+        <!--扇叶上部分或不接流动灯条的下部分最小外接矩形长宽比最小值-->
+        <ABOVE_FAN_RECT_MIN_RATIO>2.2</ABOVE_FAN_RECT_MIN_RATIO>
+        <!--扇叶上部分或不接流动灯条的下部分矩形最小外接矩形长宽比最大值-->
+        <ABOVE_FAN_RECT_MAX_RATIO>4</ABOVE_FAN_RECT_MAX_RATIO>
+        <!--膨胀后子轮廓的最小面积-->
+        <DILATE_MIN_SON_CONTOUR_AREA>2500</DILATE_MIN_SON_CONTOUR_AREA>
+        <!--R标的最小外接矩形长宽比最小值-->
+        <R_CONTOUR_MIN_RATIO>0.9</R_CONTOUR_MIN_RATIO>
+        <!--R标的最小外接矩形长宽比最大值-->
+        <R_CONTOUR_MAX_RATIO>1.2</R_CONTOUR_MAX_RATIO>
+        <!--是否显示能量机关识别效果-->
+        <RUNE_SHOW_DETECT>1</RUNE_SHOW_DETECT>
+        
+    </rune>
+
+</opencv_storage>

@@ -1,0 +1,80 @@
+/**:
+  ros__parameters:
+    # 重力加速度
+    g: 9.7803
+
+    # 弹丸质量
+    bullet_m: 3.2e-3 # 小弹丸
+
+    # 弹丸空气阻力系数
+    bullet_k: 7.1655e-5 # 小弹丸
+
+    #########################################
+    # 接收角度偏移量调节
+    receive_rune_pitch_offset: 0.0
+
+    receive_rune_yaw_offset: 0.0
+
+    receive_rune_roll_offset: 0.0
+
+    rune_k: 0.0
+
+    raw_rune_low_pitch: 3.25
+
+    # 发送角度偏移量
+    send_rune_pitch_offset: 0.3
+    #0.55
+
+    send_rune_yaw_offset:
+      0.8
+      #0.77 #-0.4
+
+    rune_trajectory_k: 0.0
+
+    send_rune_low_pitch: 0.0
+
+    #发弹相关
+    shoot_delay: 0.01
+
+    min_shoot_period: 0.5
+
+    min_switch_period: 0.2
+
+    max_switch_period: 2.00
+/container:
+  ros__parameters:
+    num_threads: 5 # 设置线程数量
+/rune_preprocessor:
+  ros__parameters:
+    #调试
+    DEBUG_MODE: false
+    RUNE_CALIB: false
+    use_sim: true
+/rune_modeling:
+  ros__parameters:
+    #调试
+    DEBUG_MODE: false
+    RUNE_CALIB: false
+    use_sim: true
+/rune_trajectory:
+  ros__parameters:
+    #调试
+    DEBUG_MODE: false
+    RUNE_CALIB: false
+    MANUAL_FIRE: false
+/virtual_rune:
+  ros__parameters:
+    judge_hit: true #击打检测
+    noise_average: 0.0 #噪声均值
+    noise_standard_deviation: 1.0 #噪声标准差
+
+    energy_yaw: 0.0 #单位rad
+    center_x: 7.4
+    center_y: 0.0
+    center_z: 1.075
+
+    #此处已激活和待激活都作为正样本，黑暗作为负样本。
+    true_positive: 100.0 #真阳性比例(100=100%)
+    true_negative: 100.0 #真阴性比例(100=100%)
+    false_positive: 0.0 #假阳性比例(100=100%)
+    false_negative: 0.0 #假阴性比例(100=100%)

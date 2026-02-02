@@ -1,0 +1,35 @@
+/**:
+  ros__parameters:
+
+    # 弹丸质量
+    bullet_m: 3.2e-3 # 小弹丸
+    
+    # 弹丸空气阻力系数
+    bullet_k: 7.1655e-5 # 小弹丸
+
+    #########################################
+    # 接收角度偏移量调节
+    rune_pitch_offset: 1.11939 
+    #0.78 #1.132
+
+    rune_k: -0.010636 
+    #-0.02465 #-0.02385
+
+    rune_low_pitch: 3.72168 
+    #-0.597778 #-0.668
+    # 发送角度偏移量
+    send_rune_pitch_offset: 0.15 
+    #0.55
+    
+    send_rune_yaw_offset: 0.62
+     #0.77 #-0.4
+    
+    rune_trajectory_k: 0.087
+     #0.045 #0.065
+
+
+    rune_half_width: 122.0
+    rune_half_height: 67.0
+
+    debug_mode: false
+    RUNE_CALIB: false

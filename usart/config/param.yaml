@@ -1,0 +1,26 @@
+/usart_receive:
+  ros__parameters:
+    armor_yaw_offset : 0.0
+    armor_pitch_offset : 0.0
+    armor_roll_offset : 0.0
+    pitchBase0 : 0.0
+    pitchBase0 : 0.0
+    pitchBase1 : 0.0
+    pitchBase2 : 0.0
+    pitchBase3 : 0.0
+    pitchError0 : 0.0
+    pitchError1 : 0.0
+    pitchError2 : 0.0
+    pitchError3 : 0.0
+    kPitch0 : 0.0
+    kPitch1 : 0.0
+    kPitch2 : 0.0
+    kPitch3 : 0.0
+    dynatic_yaw_offset : 0.0
+    dynatic_pitch_offset : 1.36
+    dynatic_roll_offset : -0.1
+    rune_yaw_offset : 0.0
+    rune_pitch_offset : 0.0
+    rune_k : 0.0
+    rune_low_pitch : 0.0
+    debuging : 0.0
