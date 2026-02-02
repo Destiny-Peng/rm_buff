@@ -385,7 +385,7 @@ namespace rune
     Rune_img_publisher(std::string name) : Node(name)
     {
       img_publisher_ = this->create_publisher<sensor_msgs::msg::Image>("rune_debug_image", 1);
-      img = cv::imread("/home/jacy/project/workspace/herocv-2024-ver-ros/src/kinematic/src/t.png");
+      img = cv::imread("/home/jacy/project/workspace/herocv-2024-ver-ros/src/buff/src/t.png");
       // cv::resize(img, img, cv::Size(640, 480));
       auto msg_ptr = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", img).toImageMsg();
       msg = *msg_ptr.get();

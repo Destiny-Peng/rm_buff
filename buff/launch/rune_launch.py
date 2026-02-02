@@ -9,14 +9,14 @@ from launch_ros.descriptions import ComposableNode
 
 # 获取config路径
 config_file = os.path.join(
-    get_package_share_directory('kinematic'),
+    get_package_share_directory('buff'),
     'config',
     'rune_param.yaml'
 )
 
 # 环境变量处理
 car_id = os.getenv('CAR_ID', '3')
-workspace = os.path.split(get_package_prefix('kinematic'))[0]
+workspace = os.path.split(get_package_prefix('buff'))[0]
 workspace = os.path.split(workspace)[0]
 
 # 动态路径生成
@@ -49,7 +49,7 @@ def generate_launch_description():
 
     # 组件容器配置
     container = ComposableNodeContainer(
-        name='kinematic_container',
+        name='buff_container',
         namespace='rune',
         package='rclcpp_components',
         executable='component_container_mt',  # 多线程容器
@@ -58,7 +58,7 @@ def generate_launch_description():
         composable_node_descriptions=[
             # 预处理器组件
             ComposableNode(
-                package='kinematic',
+                package='buff',
                 plugin='rune::RunePreprocessor',
                 name='rune_preprocessor',
                 parameters=[config_file, shared_params],
@@ -68,7 +68,7 @@ def generate_launch_description():
             ),
             # 建模组件
             ComposableNode(
-                package='kinematic',
+                package='buff',
                 plugin='rune::RuneModeling',
                 name='rune_modeling',
                 parameters=[config_file, shared_params],
@@ -78,7 +78,7 @@ def generate_launch_description():
             ),
             # 火力控制组件
             ComposableNode(
-                package='kinematic',
+                package='buff',
                 plugin='rune::RuneFireController',
                 name='rune_fire_controller',
                 parameters=[config_file, shared_params],
@@ -112,6 +112,6 @@ def generate_launch_description():
         container,
         # TimerAction(period=2.0, actions=[
         #             set_rune_preprocessor_log_level, set_rune_modeling_log_level, set_rune_fire_controller_log_level]),
-        LogInfo(msg=f"Kinematic System Started with CAR_ID={car_id}"),
+        LogInfo(msg=f"buff System Started with CAR_ID={car_id}"),
         LogInfo(msg=f"Intra-process communication: Enabled")
     ])

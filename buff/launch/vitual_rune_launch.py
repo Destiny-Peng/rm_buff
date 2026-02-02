@@ -8,13 +8,13 @@ from launch.substitutions import LaunchConfiguration
 
 # 获得config的路径
 config_file = os.path.join(
-    get_package_share_directory('kinematic'),
+    get_package_share_directory('buff'),
     'config',
     'rune_param.yaml'
 )
 
 
-workspace = os.path.split(get_package_prefix('kinematic'))[0]
+workspace = os.path.split(get_package_prefix('buff'))[0]
 workspace = os.path.split(workspace)[0]
 
 # 获得config的路径
@@ -87,7 +87,7 @@ def generate_launch_description():
         declare_car_id,
         declare_virtual_rune_log_level_arg,
         launch_ros.actions.Node(
-            package='kinematic',
+            package='buff',
             executable='virtual_rune',
             name='virtual_rune',
             output='both',

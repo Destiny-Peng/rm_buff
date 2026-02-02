@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(kinematic)
+project(buff)
 
 # 标准配置
 set(CMAKE_CXX_STANDARD 17)
@@ -12,9 +12,9 @@ add_compile_options(-fopenmp -DEIGEN_NO_DEBUG)
 
 include_directories(
   include
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/kinematic
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/kinematic/utils
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/kinematic/optimization
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/buff
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/buff/utils
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/buff/optimization
   ${Eigen3_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
   ${CERES_INCLUDE_DIRS}
@@ -43,7 +43,7 @@ add_library(rune_preprocessor_component SHARED
 set_source_files_properties(src/utils/pnp_solver.cpp 
     PROPERTIES COMPILE_OPTIONS "-O3")
 
-target_compile_definitions(rune_preprocessor_component PRIVATE "KINEMATIC_COMPONENT_BUILDING")
+target_compile_definitions(rune_preprocessor_component PRIVATE "buff_COMPONENT_BUILDING")
 target_link_libraries(rune_preprocessor_component
   ${OpenCV_LIBS}
   ${CERES_LIBRARIES}
@@ -68,7 +68,7 @@ add_library(rune_modeling_component SHARED
   src/utils/rune_fan_defination.cpp
 )
 
-target_compile_definitions(rune_modeling_component PRIVATE "KINEMATIC_COMPONENT_BUILDING")
+target_compile_definitions(rune_modeling_component PRIVATE "buff_COMPONENT_BUILDING")
 target_link_libraries(rune_modeling_component
   ${OpenCV_LIBS}
   ${CERES_LIBRARIES}
@@ -95,7 +95,7 @@ add_library(rune_fire_controller_component SHARED
 set_source_files_properties(src/utils/ballistic_solver.cpp 
     PROPERTIES COMPILE_OPTIONS "-O3")
 
-target_compile_definitions(rune_fire_controller_component PRIVATE "KINEMATIC_COMPONENT_BUILDING")
+target_compile_definitions(rune_fire_controller_component PRIVATE "buff_COMPONENT_BUILDING")
 target_link_libraries(rune_fire_controller_component
   ${OpenCV_LIBS}
   ${CERES_LIBRARIES}
