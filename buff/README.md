@@ -27,7 +27,3 @@ ros2 launch buff virtual_rune_launch.py
 # 或应用于真车调试：
 ros2 launch buff rune_launch.py
 ```
-
-## 技术亮点（可作面试参考）
-- **Ceres-Solver 三维圆约束拟合**：自定义 `ConstrainedCircle3DFittingCost` 的 CostFunction 约束空间多点，提升了系统对深度噪声的抗干扰能力。
-- **RK4数值逼近求弹道**：将空气阻力作为速度的函数通过构建常微分方程解出迭代轨迹，相比传统的迭代近似或重力模型提升了预测准度。
