@@ -56,7 +56,9 @@ ros2 run usart virtual_serialport
 
 # 终端 2: 启动底层能量机关预测及虚拟测试流
 ros2 launch buff virtual_rune_launch.py
-# 或若已接入真车硬件: ros2 launch buff rune_launch.py
+
+# 终端 3：启动主程序
+ros2 launch buff rune_launch.py
 ```
 
 可视化：直接打开 `rviz2`，加载仓库根目录下的 `rune.rviz` 查看各项解算输出和观测点。
